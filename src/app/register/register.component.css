@@ -1,0 +1,14 @@
+
+.background_nguoidung{
+    background-image: url(/assets/img/bg-tabs.jpg);
+     background-size: cover; 
+     background-repeat: no-repeat; 
+     background-position: center; 
+     height: 28vh;
+     width: 100%;
+     
+}
+.text-color{
+    color: #fa7304;
+    
+}

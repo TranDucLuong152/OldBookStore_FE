@@ -1,0 +1,34 @@
+.progress-wrap.btn-right-side {
+    right: 50px;
+}
+
+.progress-wrap.active-progress {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.progress-wrap {
+    bottom: 50px;
+    height: 46px;
+    width: 46px;
+    border-radius: 46px;
+    background-color: #ffffff;
+    box-shadow: inset 0 0 0 4px #cccccc;
+    position: fixed;
+    display: block;
+    cursor: pointer;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 200ms linear;
+}
+
+.progress-circle path {
+    transition: stroke-dashoffset 10ms linear;
+    stroke-dasharray: 307.919, 307.919;
+    stroke-dashoffset: 90.0519;
+    stroke: #eadddd;
+    stroke-width: 8;
+}

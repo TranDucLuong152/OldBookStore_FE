@@ -1,0 +1,23 @@
+.contens-home{
+    width: 100%;
+   
+}
+.text-content{
+    color: black;
+}
+.text-content:hover{
+    color: gold;
+}
+.card{
+    height: 55vh;
+}
+.card-img-top
+{
+    width: 50%;
+    height: 160px;
+    border-radius: 5%;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.6);
+}
+.card-title{
+    height: 10vh;
+}

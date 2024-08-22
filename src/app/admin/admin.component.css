@@ -1,0 +1,21 @@
+
+.background_cart{
+    background-image: url(/assets/img/bg-tabs.jpg);
+     background-size: cover; 
+     background-repeat: no-repeat; 
+     background-position: center; 
+     height: 50vh;
+     width: 100%;
+     
+}
+.text-color{
+    color: #fa7304;
+    
+}
+
+  .truncate {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px; /* Adjust this width as needed */
+  }

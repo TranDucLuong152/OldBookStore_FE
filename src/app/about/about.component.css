@@ -1,0 +1,37 @@
+.background_gioithieu{
+    background-image: url(/assets/img/bg-tabs.jpg);
+     background-size: cover; 
+     background-repeat: no-repeat; 
+     background-position: center; 
+     height: 50vh;
+     width: 100%;
+     
+}
+.text-color{
+    color: #fa7304;
+    
+}
+.master-button {
+    position: relative;
+    display: inline-flex;
+    font-size: 16px;
+    line-height: 30px;
+    padding: 10px 60px;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    background-color: gold;
+
+}
+.bg-danhgia{
+    background-color: rgb(119, 137, 187);
+}
+.danhgia{
+    width: 100%;
+    height: 80vh;
+}
+.img-danhgia{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

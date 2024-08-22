@@ -1,0 +1,33 @@
+<div>
+    <div class="background_sanpham d-flex justify-content-center">
+        <div class="m-auto">
+            <h2 class="text-light ms-3">Chi tiết sản phẩm</h2>
+            <div class="d-flex ms-4 ">
+                <a class="text-color text-decoration-none" href="#">Trang chủ </a>
+                <p class="ps-3 pe-3 text-color ">/</p>
+                <a class="text-color text-decoration-none">Chi tiết sản phẩm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container rounded shadow mt-5">
+    <h1>{{book.title}}</h1>
+    <div class="d-flex">
+        <img src="./assets/img/books/{{book.coverImage}}" class="card-img rounded shadow m-3" alt="...">
+        <div class="col-8">
+            <p>{{book.description}}</p>
+            <h6 class="ms-3">Giá sách: {{book.price | currency:'USD'}}</h6>
+            <h6 class="ms-3">Số lượng còn: {{book.stockQuantity}}</h6>
+            <p>Ngày xuất bản: {{book.publicationDate}}</p>
+            <div class="d-flex">
+                <div class="a"><a class="fw-bold text-decoration-none text-light master-button m-3"
+                        routerLink="/products">Đến cửa hàng</a></div>
+                <div class="a">
+                    <a (click)="addToCart(book)"class="fw-bold text-decoration-none text-light master-button m-3">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

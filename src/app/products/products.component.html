@@ -1,0 +1,114 @@
+<div class="container-fuint">
+    <div>
+        <div class="background_sanpham d-flex justify-content-center">
+            <div class="m-auto">
+                <h2 class="text-light ms-3">Sản phẩm</h2>
+                <div class="d-flex ">
+                    <a class="text-color text-decoration-none" href="#">Trang chủ </a>
+                    <p class="ps-3 pe-3 text-color ">/</p>
+                    <a class="text-color text-decoration-none">Sản phẩm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content mt-5 container">
+        <div class="d-flex">
+            <div class="input-seacher">
+                <div class="input-container">
+                    <input type="text" class="beautiful-input" placeholder="Tìm kiếm" #myInput
+                        (keyup.enter)="doSearch(myInput.value)">
+                    <button (click)="doSearch(myInput.value)" class="search-button" aria-label="Tìm kiếm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-4 d-flex">
+                <h6 class="m-auto">Đang hiển thị 1–{{size}} trong tổng số {{size}} kết quả</h6>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-3 d-flex">
+                <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+                    <option selected>Mặc định</option>
+                    <option value="1">Sắp xếp theo thời gian</option>
+                    <option value="2">Sắp xếp theo giá</option>
+                    <option value="3">Sắp xếp theo độ phổ biến</option>
+                </select>
+            </div>
+        </div>
+        <div class="d-flex mt-4">
+            <div class="col-3 ">
+                <div class=" shadow rounded">
+                    <div class="m-3">
+                        <h2>Lọc giá</h2>
+                        <label for="customRange3" class="form-label ms-2">Giá 0$ - {{ maxPrice }}$</label>
+                        <input type="range" class="form-range mb-3" min="0" max="2" step="0.1" id="customRange3"
+                            [(ngModel)]="rangeValue" (input)="updatePrice()">
+                    </div>
+                </div>
+                <div>
+                    <h2 class="ms-3">Danh mục</h2>
+                    <div class="list-group shadow rounded">
+
+                        <div class="list-group">
+                            <a class="text-decoration-none btn btn-outline-warning " routerLink="/products">
+                                Tất cả
+                            </a>
+                            <div class="list-group shadow" *ngFor="let item of bookcategories">
+                                <a class="list-group-item list-group-item-action focus-ring focus-ring-warning py-1 px-2"
+                                    routerLink="/category/{{item.categoryId}}"
+                                    routerLinkActive="active-link">{{item.name}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="d-flex flex-wrap ms-2">
+
+                    <div *ngFor="let book of filteredBooks">
+
+                        <div class="card m-2 mt-3" style="width: 18rem;">
+
+                            <img src="./assets/img/books/{{book.coverImage}}" class="card-img-top m-auto mt-2"
+                                alt="...">
+
+                            <div class="card-body">
+                                <h5 class="card-title">{{ book.title }}</h5>
+                                <h6 class="text-primary ms-2">Giá: {{ book.price | currency:'USD' }}</h6>
+                                <!-- <p class="card-text">{{ book.description }}</p> -->
+                                <div class="d-flex justify-content-around"> <a
+                                        class="text-decoration-none btn btn-outline-primary"
+                                        routerLink="/products/{{book.bookId}}">Chi tiết</a>
+                                        <button (click)="addToCart(book)" class="btn btn-outline-warning">Thêm vào giỏ hàng</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div *ngIf="filteredBooks?.length == 0"
+                        class="container m-5 d-flex rounded border-top border-5 border-primary shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi text-primary bi-book-half m-2 " viewBox="0 0 16 16">
+                            <path
+                                d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+                        </svg>
+                        <p class="ms-3 m-2">Không có sản phẩm này trong cửa hàng.</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize"
+                        [collectionSize]="theTotalElements" (pageChange)="listBooks()"
+                        [boundaryLinks]="true">
+                    </ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

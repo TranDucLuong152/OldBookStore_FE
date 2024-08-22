@@ -1,0 +1,19 @@
+.footer{
+    width: 100%;
+    height: 100vh;
+}
+.footer-email{
+    position: relative;
+    left: 15%;
+    top: 10%;
+    width: 70%;
+    height: 20%;
+}
+.footer-conten{
+    width: 100%;
+    height: 80%;
+}
+.img-logo{
+    width: 80px;
+    height: 85px;
+}

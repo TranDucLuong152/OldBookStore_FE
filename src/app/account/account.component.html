@@ -1,0 +1,135 @@
+<div class="container-fuint">
+    <div>
+        <div class="background_nguoidung d-flex justify-content-center">
+
+            <div class="m-auto">
+                <h2 class="text-light ms-3">Tài khoản</h2>
+                <div class="d-flex ">
+                    <a class="text-color text-decoration-none" href="#">Trang chủ </a>
+                    <p class="ps-3 pe-3 text-color ">/</p>
+                    <a class="text-color text-decoration-none">{{user.fullName}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 300px;">
+            <a href="/"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi pe-none me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap" />
+                </svg>
+                <span class="fs-4">Thông tin</span>
+            </a>
+            <hr>
+            <ul class="" id="myTab" role="tablist">
+
+                <button class="btn btn-primary col-12 m-1 active" id="home-tab" data-bs-toggle="tab"
+                    data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
+                    aria-selected="true">Thông tin</button>
+
+
+                <button class="btn btn-primary col-12 m-1" id="profile-tab" data-bs-toggle="tab"
+                    data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
+                    aria-selected="false">cập nhật thông tin</button>
+
+
+                <button class="btn btn-primary col-12 m-1" id="contact-tab" data-bs-toggle="tab"
+                    data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane"
+                    aria-selected="false">Liên hệ</button>
+
+                <button class="btn btn-primary col-12 m-1 " type="submit" (click)="logout()">Đăng xuất</button>
+
+
+            </ul>
+
+            <hr>
+            <div class="dropdown">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>{{user.fullName}}</strong>
+            </div>
+        </div>
+
+        <div class="tab-content col" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                tabindex="0">
+                <div class="shadow m-5">
+                    <h2 class="text-center">Thông tin tài khoản</h2>
+                    <p class="ms-2">Chào mừng {{user.fullName}}</p>
+                    <p>Email: {{user.email}}</p>
+                  
+                    <p>Họ và tên:{{user.fullName}}</p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <form [formGroup]="userForm" class="m-5">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Tên Tài khoản</label>
+                        <input  formControlName="username" type="text" class="form-control" placeholder="Tên Tài khoản">
+                  
+    
+                        <label for="password" class="form-label">Mật khẩu</label>
+                        <input  value="{{user.password}}" disabled  type="password" class="form-control" placeholder="Mật khẩu">
+                        
+                        <label for="password" class="form-label">Mật khẩu mới</label>
+                        <input formControlName="password" type="password" class="form-control" placeholder="Mật khẩu">
+                        <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched"
+                            class="text-danger">
+                            <small *ngIf="userForm.get('password')?.errors?.['required']">Mật khẩu là bắt buộc.</small>
+                        </div>
+    
+                        <label for="fullName" class="form-label">Họ tên</label>
+                        <input formControlName="fullName" type="text" class="form-control" placeholder="Họ tên">
+                        <div *ngIf="userForm.get('fullName')?.invalid && userForm.get('fullName')?.touched"
+                            class="text-danger">
+                            <small *ngIf="userForm.get('fullName')?.errors?.['required']">Họ tên là bắt buộc.</small>
+                        </div>
+    
+                        <label for="address" class="form-label">Địa chỉ</label>
+                        <input formControlName="address" type="text" class="form-control" placeholder="Địa chỉ">
+                        <div *ngIf="userForm.get('address')?.invalid && userForm.get('address')?.touched"
+                            class="text-danger">
+                            <small *ngIf="userForm.get('address')?.errors?.['required']">Địa chỉ là bắt buộc.</small>
+                        </div>
+    
+                        <label for="email" class="form-label">Email</label>
+                        <input formControlName="email" type="email" class="form-control" placeholder="Email">
+                        <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-danger">
+                            <small *ngIf="userForm.get('email')?.errors?.['required']">Email là bắt buộc.</small>
+                            <small *ngIf="userForm.get('email')?.errors?.['email']">Email không hợp lệ.</small>
+                        </div>
+    
+                        <label for="phoneNumber" class="form-label">Số điện thoại</label>
+                        <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Số điện thoại">
+                        <div *ngIf="userForm.get('phoneNumber')?.invalid && userForm.get('phoneNumber')?.touched"
+                            class="text-danger">
+    
+                            <small *ngIf="userForm.get('phoneNumber')?.errors?.['pattern']">Số điện không hợp lệ.</small>
+                            <small *ngIf="userForm.get('phoneNumber')?.errors?.['required']">Số điện thoại là bắt
+                                buộc.</small>
+                        </div>
+    
+                        <label for="role" class="form-label">Quyền</label>
+                        <select formControlName="role" class="form-control">
+                            <option [ngValue]="true">Admin</option>
+                            <option [ngValue]="false">User</option>
+                        </select>
+                        <div *ngIf="userForm.get('role')?.invalid && userForm.get('role')?.touched" class="text-danger">
+                            <small *ngIf="userForm.get('role')?.errors?.['required']">Quyền là bắt buộc.</small>
+                        </div>
+                    </div>
+    
+                    <div class="d-flex justify-content-evenly">
+                      
+                        <button type="button" (click)="updateUser()" class="btn btn-warning">Cập nhật</button>
+                    </div>
+                </form></div>
+            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                Liên hệ</div>
+
+        </div>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,33 @@
+.background_home{
+    background-image: url(/assets/img/bg.jpg);
+     background-size: cover; 
+     background-repeat: no-repeat; 
+     background-position: center; 
+     height: 50vh;
+     width: 100%;
+     
+}
+.thinhHanh{
+    background-color:rgb(213, 203, 203);
+    position: absolute;
+    top: 37%;
+    left: 15%;
+    height: 20vh;
+    width: 20%;
+}
+.c{
+    position: absolute;
+    top: 12%;
+    right: 15%;
+    height: 20vh;
+    width: 20%; 
+}
+.shadow-filter-img {
+    filter: drop-shadow(0 4px 8px rgba(210, 90, 90, 0.2)); /* Shadow with 4px vertical and 8px blur */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    transition: filter 0.3s ease-in-out; /* Optional: Add a transition effect */
+  }
+  
+  .shadow-filter-img:hover {
+    filter: drop-shadow(0 8px 16px rgba(221, 50, 50, 0.3)); /* Optional: Increase shadow on hover */
+  }

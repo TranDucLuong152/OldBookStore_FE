@@ -1,0 +1,13 @@
+.background_lienhe{
+    background-image: url(/assets/img/bg-tabs.jpg);
+     background-size: cover; 
+     background-repeat: no-repeat; 
+     background-position: center; 
+     height: 50vh;
+     width: 100%;
+     
+}
+.text-color{
+    color: #fa7304;
+    
+}
