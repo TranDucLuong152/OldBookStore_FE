@@ -10,6 +10,7 @@ import { BookCategory } from '../entity/book-category';
 export class BooksService {
 
   private baseUrl = 'http://localhost:8080/api/books';
+  private baseUrlBook = 'http://localhost:8080/api/v1/books';
   private categoryUrl = 'http://localhost:8080/api/books-category';
 
   constructor(private httpClient: HttpClient) { }
@@ -44,15 +45,16 @@ export class BooksService {
     const bookUrl = `${this.baseUrl}/${theBookId}`;
     return this.httpClient.get<Books>(bookUrl);
   }
+  
 
   addProduct(book:Books): Observable<any> {
-    return this.httpClient.post(`${this.baseUrl}/addProduct`, book);
+    return this.httpClient.post(`${this.baseUrlBook}/addProduct`, book);
   }
   updateProduct(book:Books): Observable<any> {
-    return this.httpClient.put(`${this.baseUrl}/updateProduct`, book);
+    return this.httpClient.put(`${this.baseUrlBook}/updateProduct`, book);
   }
   deleteProduct(bookId: number): Observable<any> {
-      return this.httpClient.delete(`${this.baseUrl}/${bookId}`);
+      return this.httpClient.delete(`${this.baseUrlBook}/${bookId}`);
   }
  
   
